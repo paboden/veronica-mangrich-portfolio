@@ -40,8 +40,8 @@ const optimizedBackground = await getImage({ src: MahoneyImage, format: 'webp' }
         display: grid;
         gap: var(--gap);
         grid-template-columns: 1fr 2fr;
-        background: light-dark(var(--yellow-light), rgb(51, 52, 80));
-        color: light-dark(var(--yellow-dark), rgb(51, 52, 80));
+        background: light-dark(var(--yellow-light), var(--yellow-light));
+        color: light-dark(var(--yellow-dark), var(--yellow-dark));
     }
     .content {
         display: flex;

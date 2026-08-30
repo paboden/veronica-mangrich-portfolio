@@ -69,7 +69,7 @@ import Img3 from "../assets/portfolio_3/ketchup.png";
 
 <style>
     :root {
-        --portfolio-three: light-dark(var(--gray-light), var(--gray-dark));
+        --portfolio-three: light-dark(var(--gray-light), var(--gray-light));
     }
     .container {
         container: portfolio3 / inline-size;
@@ -88,7 +88,7 @@ import Img3 from "../assets/portfolio_3/ketchup.png";
         flex-direction: column;
         justify-content: flex-end;
         gap: var(--gap);
-        color: light-dark(var(--gray-dark), var(--white));
+        color: light-dark(var(--gray-dark), var(--gray-dark));
     }
     h3 {
         font-size: 1.75rem;
@@ -108,8 +108,9 @@ import Img3 from "../assets/portfolio_3/ketchup.png";
         margin-inline-start: auto;
         padding: var(--gap);
         font-size: 1rem;
-        background: light-dark(var(--blue-light), var(--gray-light));
-        width: calc(50% + var(--gap-small));
+        background: light-dark(var(--blue-light), var(--blue-light));
+         color: light-dark(var(--blue-dark), var(--blue-dark));
+       width: calc(50% + var(--gap-small));
     }
     .portfolio-image {
         background-color: var(--gray-light);

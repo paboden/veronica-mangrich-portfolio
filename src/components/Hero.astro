@@ -29,7 +29,7 @@ import { HERO_TITLE, HERO_TEXT, HERO_IMAGE_ALT } from '../consts';
         gap: calc(var(--gap-large) * 2.25);
         align-items: center;
         min-height: clamp(15rem, 30vw, 24rem);
-        background: light-dark(rgb(191, 221, 238), rgb(51, 52, 80));
+        background: light-dark(var(--blue-light), var(--blue-light));
         box-shadow: inset -7rem 4rem 20rem rgba(126, 157, 216, 10%);
     }
     hgroup {
@@ -42,14 +42,14 @@ import { HERO_TITLE, HERO_TEXT, HERO_IMAGE_ALT } from '../consts';
         max-width: 60ch;
     }
     h1 {
-        color: light-dark(rgb(51, 52, 80), rgb(225, 225, 225));
+        color: light-dark(var(--blue-dark), var(--blue-dark));
         font-size: clamp(2rem, 4vw, 4rem);
     }
     p {
         margin: 0;
         font-size: clamp(1.25rem, 2.5vw, 2rem);
         line-height: 1.5;
-        color: light-dark(rgb(51, 52, 80), rgba(225, 225, 225, 85%));
+        color: light-dark(var(--blue-dark), var(--blue-dark));
     }
     img {
         border-radius: 100%;

@@ -79,7 +79,7 @@ const optimizedBg = await getImage({ src: portBg, format: 'webp' });
 
 <style>
     :root {
-        --portfolio-one: light-dark(var(--gray-light), var(--gray-dark));
+        --portfolio-one: light-dark(var(--gray-light), var(--gray-light));
     }
     .container {
         container: portfolio1 / inline-size;
@@ -98,7 +98,7 @@ const optimizedBg = await getImage({ src: portBg, format: 'webp' });
         flex-direction: column;
         justify-content: flex-end;
         gap: var(--gap);
-        color: light-dark(var(--gray-dark), var(--white));
+        color: light-dark(var(--gray-dark), var(--gray-dark));
     }
     h3 {
         font-size: 1.75rem;
@@ -118,7 +118,8 @@ const optimizedBg = await getImage({ src: portBg, format: 'webp' });
         margin-inline-start: auto;
         padding: var(--gap);
         font-size: 1rem;
-        background: light-dark(var(--blue-light), var(--gray-light));
+        background: light-dark(var(--blue-light), var(--blue-light));
+        color: light-dark(var(--blue-dark), var(--blue-dark));
         width: calc(50% + var(--gap-small));
     }
     .portfolio-image {
@@ -168,11 +169,12 @@ const optimizedBg = await getImage({ src: portBg, format: 'webp' });
         justify-content: flex-end;
     }
     dialog.portfolio .popover-top button {
-        background: light-dark(var(--green-dark), var(--green-light));
-        color: light-dark(var(--green-light), var(--green-dark));
+        background: light-dark(var(--green-dark), var(--green-dark));
+        color: light-dark(var(--green-light), var(--green-light));
         padding: var(--gap);
         margin-inline-start: auto;
         min-width: 4rem;
+        border: 0
     }
 
     dialog.portfolio .container {
@@ -180,7 +182,7 @@ const optimizedBg = await getImage({ src: portBg, format: 'webp' });
         flex-direction: column;
         justify-content: space-between;
         height: calc(100% - calc(var(--gap) * 5));
-        background: light-dark(var(--white), var(--black));
+        background: light-dark(var(--white), var(--white));
         border-block-end: var(--gap) solid var(--bg-color);
         gap: var(--gap);
         padding: 0;
@@ -201,7 +203,7 @@ const optimizedBg = await getImage({ src: portBg, format: 'webp' });
         gap: var(--gap);
     }
     dialog.portfolio ul li {
-        background: light-dark(var(--gray-light), var(--gray-dark));
+        background: light-dark(var(--gray-light), var(--gray-light));
         display: flex;
         flex-direction: column;
         padding: var(--gap-large);

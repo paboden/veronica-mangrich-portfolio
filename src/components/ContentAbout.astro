@@ -25,8 +25,8 @@
         display: grid;
         gap: var(--gap);
         grid-template-columns: 1fr 3fr;
-        background: light-dark(var(--blue-dark), rgb(51, 52, 80));
-        color: light-dark(var(--white), rgb(51, 52, 80));
+        background: light-dark(var(--blue-dark), var(--blue-dark));
+        color: light-dark(var(--white), var(--white));
         padding-block-start: calc(var(--gap-large) * 1.5);
     }
     .content {
@@ -39,10 +39,10 @@
     }
     h2 {
         padding: var(--gap-large);
-        color: light-dark(var(--white), rgb(51, 52, 80));
+        color: light-dark(var(--white), var(--white));
     }
     p {
-        color: light-dark(var(--white), rgb(51, 52, 80));
+        color: light-dark(var(--white), var(--white));
     }
     p + p {
         margin-block-start: var(--gap-large);
