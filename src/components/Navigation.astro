@@ -117,15 +117,16 @@ import HeaderLink from "./HeaderLink.astro";
         background: light-dark(var(--gray-light), var(--gray-dark));
         border: var(--gap) solid var(--bg-color);
         border-radius: 0;
-        min-height: calc(100dvh - var(--gap-large));
+        height: calc(100dvh - var(--gap-large));
         padding: 0;
+        overflow-y: auto;
     }
 
     dialog nav {
         display: flex;
         flex-direction: column;
         background: light-dark(var(--white), var(--black));
-        border-block-end: var(--gap) solid var(--bg-color);
+        border-block: var(--gap) solid var(--bg-color);
         padding: 0;
         margin: 0;
     }
