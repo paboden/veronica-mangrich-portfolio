@@ -1,0 +1,70 @@
+---
+
+---
+<div id="btp">
+    <div>
+        <div class="filler"></div>
+        <div class="link__container">
+            <a href="/#home" class="back-to-top__link">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><title>arrow-up-md</title><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19V5m0 0l-6 6m6-6l6 6"/></svg>
+                <span>Back to top</span>
+            </a>
+        </div>
+    </div>
+</div>
+
+<style>
+    #btp {
+        container: btp \ inline-size;
+    }
+
+    #btp {
+        position: sticky;
+        inset: auto auto 0;
+        /* width: min(100%, 100ch); */
+        box-shadow: 0 -.5rem 8rem rgba(21, 21, 21, 40%);
+    }
+
+    #btp > div {
+        display: grid;
+        grid-template-columns: 3fr 1fr;
+        height: stretch;
+        gap: var(--gap);
+        padding: var(--gap) var(--gap) 0;
+        margin-inline: calc(-1 * var(--gap));
+        margin-block-start: calc(-1 * var(--gap));
+        background-color: var(--bg-color);
+    }
+
+    .filler {
+        /* box-shadow: inset -7rem 4rem 20rem rgba(126, 157, 216, 20%); */
+        background-color: light-dark(var(--green-light), var(--green-dark));
+    }
+
+    .link__container {
+        padding: 0 var(--gap-large);
+        background-color: light-dark(var(--green-dark), var(--green-light));
+        /* box-shadow: inset -7rem 4rem 20rem rgba(126, 157, 216, 20%); */
+    }
+
+    a {
+        display: flex;
+        font-size: 1rem;
+        text-decoration: none;
+        padding: var(--gap-small);
+        align-items: center;
+        justify-content: center;
+        font-weight: 500;
+        color: light-dark(var(--green-light), var(--green-dark));
+    }
+    @media (max-width: 90ch) {
+        #btp > div {
+            /* display: flex; */
+            /* flex-direction: column; */
+        }
+
+        a span {
+            display: none;
+        }
+    }
+</style>

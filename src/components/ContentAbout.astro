@@ -1,0 +1,65 @@
+---
+
+---
+<section id="about" class="container">
+    <div>
+        <h2>About me</h2>
+        <div class="content">
+            <p>I am a results-driven administrative and operations professional with extensive experience in reporting, sales support, customer service, marketing coordination, and office management. I am adept at managing multiple priorities, improving processes, coordinating cross-functional projects, and supporting executive leadership.</p>
+
+            <p>I combine strong analytical skills with creative marketing experience and a commitment to accuracy, customer service, and team success.</p>
+            
+            <p>I am skilled in business systems such as JDE, QlikView, Microsoft Office, Smartsheet, InDesign, Photoshop, and various supplier management platforms.</p>
+        </div>
+    </div>
+</section>
+
+<style>
+    .container {
+		container: about / inline-size;
+        display: flex;
+        gap: var(--gap);
+    }
+
+    .container > div {
+        display: grid;
+        gap: var(--gap);
+        grid-template-columns: 1fr 3fr;
+        background: light-dark(var(--blue-dark), rgb(51, 52, 80));
+        color: light-dark(var(--white), rgb(51, 52, 80));
+    }
+    .content {
+        column-count: 2;
+        column-width: 25ch;
+        margin-inline-start: auto;
+        gap: var(--gap-large);
+        position: relative;
+        padding: var(--gap-large);
+    }
+    h2 {
+        padding: var(--gap-large);
+        color: light-dark(var(--white), rgb(51, 52, 80));
+    }
+    p {
+        color: light-dark(var(--white), rgb(51, 52, 80));
+    }
+    p + p {
+        margin-block-start: var(--gap-large);
+    }
+
+    @container about (width < 80ch) {
+        .container > div {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+        }
+        .content {
+            display: flex;
+            flex-direction: column;
+            width: auto;
+            gap: unset;
+            margin: 0;
+            padding-block-start: 0;
+        }
+    }
+</style>

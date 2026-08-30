@@ -1,0 +1,89 @@
+---
+
+---
+<div class="container">
+    <!-- <h2>Past Experience</h2> -->
+    <div class="columns">
+        <div class="column">
+            <hgroup>
+                <h3>Customer Service Representative</h3> 
+                <time datetime="2020">2020</time>-<time datetime="2021">2021</time>
+                <p>Pacific Coast Producers</p>
+            </hgroup>
+            <ul>
+                <li>Navigate through JDE, Qlikview, Order Change Log, Outlook, and Microsoft Office Programs</li>
+                <li>Prepare monthly label inventory reports to send to customers</li>
+                <li>Enclosure billing reports</li>
+                <li>Process and audit orders</li>
+                <li>Restock labels</li>
+                <li>Manage daily stock shortages</li>
+                <li>Communicate directly with broker/customer</li>
+                <li>Work with the Sales Team when pricing and stock issues arise</li>
+                <li>Assist the Marketing Team with creating salesheets with InDesign and updating product information on company website</li>
+            </ul>
+        </div>
+
+        <div class="column">
+            <hgroup>
+                <h3>Office Manager</h3> 
+                <time datetime="2017">2017</time>-<time datetime="2019">2019</time>
+                <p>Walker Veterinary Hospital</p>
+            </hgroup>
+            <ul>
+                <li>Managed daily operations and schedules of employees</li>
+                <li>Directly dealt with multiple venders</li>
+                <li>Maintained detailed files of company accounts</li>
+                <li>Implemented the shift to digital medical records</li>
+                <li>Managed monthly accounts receivables</li>
+                <li>Responsible for recruiting, hiring, performance reviews and necessary disciplinary actions.</li>
+            </ul>
+
+            <hgroup>
+                <h3>Assistant Office Manager</h3> 
+                <time datetime="2010">2010</time>-<time datetime="2017">2017</time>
+                <p>Walker Veterinary Hospital</p>
+            </hgroup>
+            <ul>
+                <li>Provide daily support to the Office Manager’s needs</li>
+                <li>Counted daily till and created weekly deposits</li>
+                <li>Maintained inventory and supplies</li>
+                <li>Trained receptionists and kennel technicians</li>
+                <li>Maintained office and lab equipment by running quality control</li>
+                <li>Trained to open and close the office and building</li>
+            </ul>
+        </div>
+    </div>
+</div>
+<style>
+    .container {
+		container: experience / inline-size;
+    }
+    h2 {
+        margin-bottom: 2rem;
+    }
+    .columns {
+        column-count: 2;
+        column-width: 20ch;
+        gap: 3rem;
+        text-wrap: balance;
+    }
+    .column {
+        break-after: column;
+    }
+    ul {
+        margin-block-end: 3rem;
+    }
+    hgroup {
+        margin-block-end: 1rem;
+    }
+    @container experience (width < 80ch) {
+ 
+        .columns {
+            column-count: 1;
+            gap: 2rem;
+        }
+        .column {
+            break-after: avoid;
+        }
+    }
+</style>

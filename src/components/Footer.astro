@@ -1,0 +1,73 @@
+---
+import SocialLinksFooter from "./SocialLinksFooter.astro";
+
+const today = new Date();
+---
+
+<footer>
+	<div>
+		<section class="footer__left">
+			<!-- <h2>Other title</h2>
+			<p>{today.getMonth()}/{today.getDay()}/{today.getFullYear()} version</p> -->
+		</section>
+		<section class="footer__right">
+			<h2>Contact</h2>
+			<SocialLinksFooter />
+		</section>
+	</div>
+</footer>
+
+<style>
+	footer {
+		container: footer / inline-size;
+	}
+
+	footer > div {
+		padding: 1rem 1rem 1rem;
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		gap: 1rem;
+		margin-inline: auto;
+		max-width: 120ch;
+	}
+
+	@container footer (width < 70ch) {
+		footer > div {
+			display: flex;
+			flex-direction: column;
+		}
+	}
+
+	section {
+		border-radius: 1rem;
+		background: rgb(219, 217, 215);
+		color: rgba(10, 10, 10, 80%);
+		padding: 1rem;
+		min-height: 15rem;
+		display: flex;
+		flex-direction: column;
+	}
+
+	@container footer (width < 70ch) {
+		section {
+			min-height: auto;
+		}
+	}
+
+	.footer__left {
+		background: 
+			linear-gradient(rgb(219, 217, 215));
+		color: rgba(10, 10, 10, 80%);
+		box-shadow: inset 0 3rem 6rem rgba(10, 10, 10, 30%);
+	}
+
+	.footer__right {
+		background: 
+			linear-gradient(rgb(190, 220, 212));
+		color: rgba(10, 10, 10, 80%);
+		box-shadow: inset 0 3rem 6rem rgba(10, 10, 10, 30%);
+	}
+	p {
+		font-size: .9rem;
+	}
+</style>

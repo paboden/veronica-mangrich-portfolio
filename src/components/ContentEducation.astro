@@ -1,0 +1,55 @@
+---
+
+---
+<section id="education">
+    <div>
+        <h2>Education</h2>
+        <div class="content">
+            <h3>Bachelor of Arts in Nutrition <br/><em>with option in General Dietetics</em></h3>
+            <p>California State University, Chico</p>
+            <p class="location">Chico, California<time datetime="2007-06-01">June 2007</time></p>
+            <h3>Associates in Veterinary Technology</h3>
+            <p>Carrington College of California</p>
+            <p class="location">Stockton, California<time datetime="2012-08-01">August 2012</time></p>
+        </div>
+    </div>
+</section>
+
+<style>
+    section {
+        container: education \ inline-size;
+    }
+
+    section > div {
+        display: flex;
+        flex-direction: column;
+        height: stretch;
+        gap: 0;
+        background-color: light-dark(var(--blue-light), var(--blue-light));
+        color: light-dark(var(--blue-dark), var(--blue-dark));
+        box-shadow: inset -7rem 4rem 20rem rgba(126, 157, 216, 20%);
+    }
+
+    h2 {
+        padding: var(--gap-large);
+    }
+
+    .content {
+        padding: var(--gap-large);
+        padding-block-start: 0;
+    }
+
+    em {
+        font-size: 1.25rem;
+    }
+
+    time {
+        margin-inline-start: var(--gap-small);
+        padding-inline-start: var(--gap-small);
+        border-inline-start: 1px solid currentColor;
+    }
+
+    p + h3 {
+        margin-block-start: var(--gap-large);
+    }
+</style>

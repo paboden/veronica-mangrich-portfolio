@@ -1,0 +1,138 @@
+---
+import { Image, getImage } from 'astro:assets';
+import MahoneyImage from '../assets/mahoney_closeup.jpeg';
+
+const optimizedBackground = await getImage({ src: MahoneyImage, format: 'webp' });
+---
+<div class="container">
+    <div>
+        <section id="contact">
+            <h2>Contact</h2>
+            <div class="content">
+                <!-- <p>I look forward to hearing from you!</p> -->
+                <ul>
+                    <li>Cell: <a href="tel:+15308647170">530 864 7170</a></li>
+                    <li>Office: <a href="tel:+12093276201">209 327 6201</a></li>
+                    <li>Email: <a href="mailto:vmangrich@pcoastp.com">vmangrich@pcoastp.com</a></li>
+                    <li><a href="https://www.linkedin.com/in/veronica-mangrich-02735b355">LinkedIn</a></li>
+                </ul>
+            </div>
+        </section>
+
+        <div class="image-filler" style={{ backgroundImage: `url(${optimizedBackground.src})` }}>
+
+        </div>
+        <!-- <Image 
+            src={MahoneyImage} 
+            alt="decorative"
+            width={400}
+            height={500}
+        /> -->
+    </div>
+</div>
+
+<style>
+    .container {
+		container: contact / inline-size;
+    }
+
+    .container > div {
+        display: grid;
+        gap: var(--gap);
+        grid-template-columns: 3fr 1fr;
+    }
+
+    section {
+        display: grid;
+        gap: var(--gap);
+        grid-template-columns: 1fr 2fr;
+        background: light-dark(var(--yellow-light), rgb(51, 52, 80));
+        color: light-dark(var(--yellow-dark), rgb(51, 52, 80));
+    }
+    .content {
+        display: flex;
+        flex-direction: column;
+        gap: var(--gap-large);
+        position: relative;
+        padding: var(--gap-large);
+    }
+    h2 {
+        padding: var(--gap-large);
+    }
+    p {
+        color: light-dark(var(--yellow-dark), rgb(51, 52, 80));
+    }
+    ul {
+        padding: 0;
+        margin: 0;
+        list-style-type: none;
+    }
+    .image-filler {
+        border-radius: 0;
+        filter: grayscale();
+        background-image: url(${optimizedBackground.src});
+        background-size: cover;
+        background-position: center;
+        min-height: 3rem;
+    }
+    @container contact (width < 80ch) {
+        .container > div {
+            display: flex;
+            flex-direction: column;
+        }
+        section {
+            display: flex;
+            flex-direction: column;
+            width: auto;
+            gap: unset;
+            margin: 0;
+        }
+        .content {
+            padding-block-start: 0;
+        }
+    }
+
+</style>
+
+
+<!-- <style>
+div {
+    display: grid;
+    gap: 1rem;
+}
+
+[data-columns]:not([data-columns="1"]) {
+    grid-template-columns: repeat(var(--columnCount), 1fr);
+    grid-template-rows: auto;
+}
+
+@media (max-width: 840px) {
+    div {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+}
+</style> -->
+
+<!-- <section id="contact" class="container">
+    <div>
+        <h2>Contact</h2>
+        <div class="content">
+            <ul>
+                <li>Phone: 530 864 3252</li>
+                <li>Office: 530 864 3252</li>
+                <li>Email: vlmangrich@ADDEMAILHERE</li>
+            </ul>
+        </div>
+    </div>
+    <Image 
+        src={VlmImage} 
+        class={'circle'}
+		alt="decorative"
+        width={300}
+        height={300}
+        />
+</section> -->
+
+

@@ -1,0 +1,27 @@
+---
+const { columns = 1, name = '' } = Astro.props;
+const columnCount = columns;
+---
+<div data-columns={columns} data-name={name}>
+    <slot />
+</div>
+
+<style define:vars={{ columnCount }}>
+    div {
+        display: grid;
+        gap: 1rem;
+    }
+
+    [data-columns]:not([data-columns="1"]) {
+        grid-template-columns: repeat(var(--columnCount), 1fr);
+        grid-template-rows: auto;
+    }
+
+    @media (max-width: 840px) {
+        div {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+       }
+    }
+</style>

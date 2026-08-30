@@ -1,0 +1,144 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Hero.astro';
+import Row from '../components/Row.astro';
+import Section from '../components/Section.astro';
+import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
+import { Image } from 'astro:assets';
+import VlmImage from '../assets/vlmangrich_headshot_1.png';
+
+import ContentEducation from '../components/ContentEducation.astro';
+import ContentSkills from '../components/ContentSkills.astro';
+import ContentExperience from '../components/ContentExperience.astro';
+import ContentCurrentRole from '../components/ContentCurrentRole.astro';
+import ContentContact from '../components/ContentContact.astro';
+import ContentAbout from '../components/ContentAbout.astro';
+
+import SectionFiller from '../components/SectionFiller.astro';
+
+---
+<Layout title={SITE_TITLE} description={SITE_DESCRIPTION}>
+	<Row>
+		<Hero />
+	</Row>
+
+	<Row>
+		<ContentAbout />
+	</Row>
+
+	<Row>
+		<Section id="portfolio" title="Portfolio" />
+	</Row>
+
+	<Row>
+		<Section id="portfolio1">
+			<p>Somehow we will put portfolio here.</p>
+			<div class="images">
+				<Image 
+					src={VlmImage} 
+					alt="Headshot of Veronica Mangrich" 
+					class={'circle'}
+					width={300}
+					height={300}
+					/>
+				<Image 
+					src={VlmImage} 
+					alt="Headshot of Veronica Mangrich" 
+					class={'circle'}
+					width={300}
+					height={300}
+					/>
+				<Image 
+					src={VlmImage} 
+					alt="Headshot of Veronica Mangrich" 
+					class={'circle'}
+					width={300}
+					height={300}
+					/>
+			</div>
+		</Section>
+	</Row>
+
+	<Row>
+		<Section id="portfolio2">
+			<p>Somehow we will put portfolio here.</p>
+			<div class="images">
+				<Image 
+					src={VlmImage} 
+					alt="Headshot of Veronica Mangrich" 
+					class={'circle'}
+					width={300}
+					height={300}
+					/>
+				<Image 
+					src={VlmImage} 
+					alt="Headshot of Veronica Mangrich" 
+					class={'circle'}
+					width={300}
+					height={300}
+					/>
+				<Image 
+					src={VlmImage} 
+					alt="Headshot of Veronica Mangrich" 
+					class={'circle'}
+					width={300}
+					height={300}
+					/>
+			</div>
+		</Section>
+	</Row>
+
+	<Row>
+		<Section id="portfolio3">
+			<p>Somehow we will put portfolio here.</p>
+			<div class="images">
+				<Image 
+					src={VlmImage} 
+					alt="Headshot of Veronica Mangrich" 
+					class={'circle'}
+					width={300}
+					height={300}
+					/>
+				<Image 
+					src={VlmImage} 
+					alt="Headshot of Veronica Mangrich" 
+					class={'circle'}
+					width={300}
+					height={300}
+					/>
+				<Image 
+					src={VlmImage} 
+					alt="Headshot of Veronica Mangrich" 
+					class={'circle'}
+					width={300}
+					height={300}
+					/>
+			</div>
+		</Section>
+	</Row>
+
+	<Row>
+		<Section title="Experience" id="experience"/>
+	</Row>
+
+	<Row>
+		<Section>
+			<ContentCurrentRole />
+		</Section>
+	</Row>
+
+	<Row>
+		<Section>
+			<ContentExperience />
+		</Section>
+	</Row>
+
+	<Row columns="2">
+		<ContentSkills />
+		<ContentEducation />
+	</Row>
+
+	<Row>
+		<ContentContact />
+	</Row>
+</Layout>

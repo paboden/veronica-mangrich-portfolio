@@ -1,0 +1,88 @@
+---
+const { id, title } = Astro.props;
+---
+<section id={id}>
+    <div>
+        { title && <h2>{ title }</h2>}
+        <slot />
+    </div>
+</section>
+
+<style>
+    section {
+        container: section \ inline-size;
+    }
+
+    section > div {
+        display: flex;
+        flex-direction: column;
+        height: stretch;
+        gap: 1.5rem;
+    }
+
+    section > div {
+        padding: var(--gap-large);
+        /* border-radius: 1rem; */
+        /* border: 1px solid light-dark(rgba(51, 52, 80, 25%), rgba(225, 225, 225, 15%)); */
+        /* padding: 2.5rem 2.5rem 3.5rem; */
+        
+        background: light-dark(rgb(232, 232, 232), rgb(51, 52, 80));
+        /* border: 1px solid rgba(126, 157, 216, 30%); */
+        /* border-radius: 1rem; */
+        /* box-shadow: inset -7rem 4rem 20rem rgba(126, 157, 216, 20%); */
+    }
+
+    @container section (width < 80ch) {
+        section > div {
+            display: flex;
+            flex-direction: column;
+        }
+    }
+</style>
+
+<style is:global>
+    /* #about > div {
+        background: light-dark(rgb(21, 50, 86), rgb(51, 52, 80));
+    }
+    #about p, #about h2 {
+        color: light-dark(#FFFFFF, rgb(51, 52, 80));
+    } */
+
+
+    #portfolio > div {
+        background: rgb(197, 223, 192);
+    }
+    #portfolio1 > div {
+        background: light-dark(rgb(43, 76, 43), rgb(51, 52, 80));
+    }
+    #portfolio2 > div {
+        background: light-dark(rgb(188, 217, 237), rgb(51, 52, 80));
+    }
+    #portfolio3 > div {
+        background: light-dark(rgb(240, 228, 179), rgb(51, 52, 80));
+    }
+
+    #portfolio :where( h2, h3, p ) {
+        color: light-dark( rgb(51, 52, 80), #FFFFFF,);
+    }
+    #portfolio1 :where( h2, h3, p ) {
+        color: light-dark(#FFFFFF, rgb(51, 52, 80));
+    }
+    #portfolio2 :where( h2, h3, p ) {
+        color: light-dark( rgb(51, 52, 80), #FFFFFF,);
+    }
+    #portfolio3 :where( h2, h3, p ) {
+        color: light-dark(rgb(51, 52, 80), rgb(240, 228, 179));
+    }
+
+    #current > div {
+        background: light-dark(rgb(21, 50, 86), rgb(51, 52, 80));
+    }
+    #current :where(p, h2, h3, h4, li, time) {
+        color: light-dark(#FFFFFF, rgb(51, 52, 80));
+    }
+
+    /* #contact > div {
+        background: rgb(240, 228, 179);
+    } */
+</style>
