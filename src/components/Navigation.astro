@@ -121,7 +121,6 @@ import HeaderLink from "./HeaderLink.astro";
         padding: 0;
         overflow-y: auto;
     }
-
     dialog nav {
         display: flex;
         flex-direction: column;
@@ -130,7 +129,6 @@ import HeaderLink from "./HeaderLink.astro";
         padding: 0;
         margin: 0;
     }
-
     dialog nav ul {
         list-style-type: none;
         margin: 0;
@@ -140,13 +138,14 @@ import HeaderLink from "./HeaderLink.astro";
         flex-direction: column;
         gap: var(--gap);
     }
-
     dialog nav ul li {
         background: light-dark(var(--green-light), var(--green-dark));
+        display: block;
+    }
+    dialog nav a {
         padding: var(--gap);
         display: block;
     }
-
     dialog nav button {
         background: light-dark(var(--green-dark), var(--green-light));
         color: light-dark(var(--green-light), var(--green-dark));
