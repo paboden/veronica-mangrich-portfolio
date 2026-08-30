@@ -1,37 +1,24 @@
 ---
 import { getImage } from "astro:assets";
 import myBackground1 from "../assets/blog-placeholder-1.jpg";
-import myBackground2 from "../assets/blog-placeholder-2.jpg";
-import myBackground3 from "../assets/blog-placeholder-3.jpg";
-
 
 const optimizedBackground1 = await getImage({ src: myBackground1, format: 'webp' });
-const optimizedBackground2 = await getImage({ src: myBackground2, format: 'webp' });
-const optimizedBackground3 = await getImage({ src: myBackground3, format: 'webp' });
 ---
 <div class="container" id="portfolio-1">
     <section>
         <div class="content">
-            <h2 class="small">Point of Sales</h2>
+            <h3 class="small">Point of Sales</h3>
             <p>Point of sales marketing pieces are custom made for general customers or for specific brands. They provide details for a wide arrangement of our products.</p>
+            <button 
+            class="more-btn"  
+            aria-label="Open portfolio collection"
+            popovertargetaction="show"
+            popovertarget="myPopover"
+            >View project</button>
         </div>
         <button 
         class="portfolio-image image-1" 
         style={{ backgroundImage: `url(${optimizedBackground1.src})` }} 
-        aria-label="Open portfolio collection three"
-        popovertargetaction="show"
-        popovertarget="myPopover"
-        ></button>
-        <button 
-        class="portfolio-image image-2" 
-        style={{ backgroundImage: `url(${optimizedBackground2.src})` }} 
-        aria-label="Open portfolio collection three"
-        popovertargetaction="show"
-        popovertarget="myPopover"
-        ></button>
-        <button 
-        class="portfolio-image image-3" 
-        style={{ backgroundImage: `url(${optimizedBackground3.src})` }} 
         aria-label="Open portfolio collection three"
         popovertargetaction="show"
         popovertarget="myPopover"
@@ -48,13 +35,6 @@ const optimizedBackground3 = await getImage({ src: myBackground3, format: 'webp'
             <li><p>This is my image</p></li>
             <li><p>This is my image</p></li>
             <li><p>This is my image</p></li>
-            <li><p>This is my image</p></li>
-            <li><p>This is my image</p></li>
-            <li><p>This is my image</p></li>
-            <li><p>This is my image</p></li>
-            <li><p>This is my image</p></li>
-            <li><p>This is my image</p></li>
-            <li><p>This is my image</p></li>
         </ul>
     </div>
     <div class="popover-bottom">
@@ -66,31 +46,47 @@ const optimizedBackground3 = await getImage({ src: myBackground3, format: 'webp'
 
 <style>
     :root {
-        --portfolio-three: light-dark(var(--green-light), var(--green-dark));
+        --portfolio-three: light-dark(var(--gray-light), var(--gray-dark));
     }
     .container {
         container: portfolio3 / inline-size;
     }
     section {
         display: grid;
-        grid-template-columns: repeat(4, 1fr);
+        grid-template-columns: repeat(2, 1fr);
         grid-template-rows: 1fr 1fr;
         gap: var(--gap);
     }
     .content {
-        grid-column: 1 / 3;
+        grid-column: 1 / 2;
         grid-row: 1 / -1;
         background-color: var(--portfolio-three);
-        padding: var(--gap-large);
         display: flex;
         flex-direction: column;
-        justify-content: center;
+        justify-content: flex-end;
         gap: var(--gap);
         color: light-dark(var(--gray-dark), var(--white));
     }
-    h2 {
+    h3 {
         font-size: 1.75rem;
         font-family: var(--font-sans-serif);
+        padding: var(--gap-large);
+        padding-block-end: 0;
+        font-weight: 400;
+    }
+    p {
+        padding: var(--gap-large);
+        padding-block-start: 0;
+    }
+    .more-btn {
+        border: 0;
+        border-block-start: var(--gap) solid var(--bg-color);
+        border-inline-start: var(--gap) solid var(--bg-color);
+        margin-inline-start: auto;
+        padding: var(--gap);
+        font-size: 1rem;
+        background: light-dark(var(--blue-light), var(--gray-light));
+        width: calc(50% + var(--gap-small));
     }
     .portfolio-image {
         background-color: var(--gray-light);
@@ -101,38 +97,22 @@ const optimizedBackground3 = await getImage({ src: myBackground3, format: 'webp'
         border: 0;
         box-shadow: inset 0 5rem 15rem light-dark(var(--gray-dark), var(--gray-dark));
         filter: grayscale();
-    }
-    .image-1 {
-        grid-column: 3 / 4;
+        grid-column: 2 / 3;
         grid-row: 1 / -1;
     }
-    .image-2 {
-        grid-column: 4 / 5;
-        grid-row: 1 / 2;
-        /* aspect-ratio: 2 / 1; */
-    }
-    .image-3 {
-        grid-column: 4 / 5;
-        grid-row: 2 / -1;
-        /* aspect-ratio: 2 / 1; */
-    } 
     @container portfolio3 (width < 80ch) {
         section {
             display: flex;
             flex-direction: column;
             gap: var(--gap);
         }
-        .image-1 {
-            aspect-ratio: 2 / 1;
+        .content {
+            order: 2;
         }
-        .image-2 {
-            display: none;
+        .portfolio-image {
+            order: 1;
             aspect-ratio: 2 / 1;
-        }
-        .image-3 {
-            display: none;
-            aspect-ratio: 2 / 1;
-        }
+       }
 	}
 </style>
 
