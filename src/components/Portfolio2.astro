@@ -1,0 +1,100 @@
+---
+import { getImage } from "astro:assets";
+import myBackground1 from "../assets/blog-placeholder-1.jpg";
+import myBackground2 from "../assets/blog-placeholder-2.jpg";
+import myBackground3 from "../assets/blog-placeholder-3.jpg";
+
+
+const optimizedBackground1 = await getImage({ src: myBackground1, format: 'webp' });
+const optimizedBackground2 = await getImage({ src: myBackground2, format: 'webp' });
+const optimizedBackground3 = await getImage({ src: myBackground3, format: 'webp' });
+---
+<div class="container" id="portfolio-2">
+    <section>
+        <div class="content">
+            <h2 class="small">In this e-Can-omy? Buy More Cans!</h2>
+            <p>A new and simple concept was needed, to help remind people that buying canned food is a great way to stretch your food dollars. A 1950's, nostalgic style artwork achieves this. Currently, It is mainly used on swag items, such as large canvas bags and t-shirts.</p>
+        </div>
+       <button 
+        class="portfolio-image image-1" 
+        style={{ backgroundImage: `url(${optimizedBackground1.src})` }} 
+        aria-label="Open portfolio collection one"
+        popovertargetaction="show"
+        popovertarget="myPopover"
+        ></button>
+        <button 
+        class="portfolio-image image-2" 
+        style={{ backgroundImage: `url(${optimizedBackground2.src})` }} 
+        aria-label="Open portfolio collection one"
+        popovertargetaction="show"
+        popovertarget="myPopover"
+        ></button>
+    </section>
+</div>
+
+<div id="myPopover" popover="auto">
+    <p>This is my image</p>
+    <button popovertarget="myPopover" popovertargetaction="hide">Close</button>
+</div>
+
+<style>
+    :root {
+        --portfolio-two: light-dark(var(--blue-light), var(--blue-dark));
+    }
+    .container {
+        container: portfolio2 / inline-size;
+    }
+    section {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-template-rows: 1fr;
+        gap: var(--gap);
+    }
+    .content {
+        grid-column: 3 / -1;
+        grid-row: 1 / -1;
+        background-color: var(--portfolio-two);
+        padding: var(--gap-large);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: var(--gap);
+        color: light-dark(var(--blue-dark), var(--white));
+    }
+    h2 {
+        font-size: 1.75rem;
+        font-family: var(--font-sans-serif);
+    }
+    .image-1,
+    .image-2 {
+        background-color: var(--gray-light);
+        background-repeat: none;
+        background-size: cover;
+        display: block;
+    }
+
+    .image-1 {
+        grid-column: 1 / 2;
+        grid-row: 1 / -1;
+        aspect-ratio: 1 / 1;
+    }
+    .image-2 {
+        grid-column: 2 / 3;
+        grid-row: 1 / -1;
+        aspect-ratio: 1 / 1;
+    }
+	@container portfolio2 (width < 80ch) {
+        section {
+            display: flex;
+            flex-direction: column;
+            gap: var(--gap);
+        }
+        .image-1 {
+            aspect-ratio: 2 / 1;
+        }
+        .image-2 {
+            display: none;
+            aspect-ratio: 2 / 1;
+        }
+	}
+</style>

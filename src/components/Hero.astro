@@ -26,7 +26,7 @@ import { HERO_TITLE, HERO_TEXT, HERO_IMAGE_ALT } from '../consts';
     .hero {
         display: flex;
         padding: var(--gap-large);
-        gap: var(--gap-large);
+        gap: calc(var(--gap-large) * 2.25);
         align-items: center;
         min-height: clamp(15rem, 30vw, 24rem);
         background: light-dark(rgb(191, 221, 238), rgb(51, 52, 80));
@@ -54,7 +54,7 @@ import { HERO_TITLE, HERO_TEXT, HERO_IMAGE_ALT } from '../consts';
     img {
         border-radius: 100%;
         border: var(--gap) solid white;
-        max-width: clamp(9rem, 18vw, 240px);
+        max-width: clamp(9rem, 18vw, 250px);
 	    filter: grayscale()
     }
 

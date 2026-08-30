@@ -6,6 +6,9 @@
 
 :root {
 	color-scheme: light dark;
+	
+	/* Defaults */
+	--page-width: 120ch;
 
 	/* Spacings */
 	--gap: 1rem;
@@ -24,9 +27,8 @@
 	--black: rgb(15, 18, 25);
 
 	--gray: 96, 115, 159;
-	--gray-light: 229, 233, 240;
-	--gray-dark: 34, 41, 57;
-	--gray-gradient: rgba(var(--gray-light), 50%), #fff;
+	--gray-light: rgb(229, 233, 240);
+	--gray-dark: rgb(34, 41, 57);
 
 	--blue-dark: rgb(21, 50, 86);
 	--blue-light: rgb(191, 221, 238);
@@ -54,7 +56,7 @@ body {
 	text-align: left;
 	word-wrap: break-word;
 	overflow-wrap: break-word;
-	color: rgb(var(--gray-dark));
+	color: var(--gray-dark);
 	font-size: 20px;
 	line-height: 1.7;
 	min-height: 100dvh;
@@ -74,7 +76,7 @@ main {
 	gap: 1rem;
 	flex-grow: 1;
 	width: stretch;
-	max-width: 100ch;
+	max-width: var(--page-width);
 	margin-inline: auto;
 	position: relative;
 }
@@ -91,7 +93,6 @@ h5,
 h6 {
 	font-family: var(--font-serif);
 	margin: 0 0 0 0;
-	color: rgb(var(--black));
 	line-height: 1.2;
 }
 h1 {
@@ -123,16 +124,14 @@ strong,
 b {
 	font-weight: 700;
 }
-a {
+/* a {
 	color: var(--accent);
 }
 a:hover {
 	color: var(--accent);
-}
+} */
 p {
 	margin: 0;
-	color: light-dark(rgb(51, 52, 80), rgb(225, 225, 225));
-
 }
 .prose p {
 	margin-bottom: 1rem;
@@ -154,7 +153,7 @@ img {
 }
 code {
 	padding: 2px 5px;
-	background-color: rgb(var(--gray-light));
+	background-color: var(--gray-light);
 	border-radius: 2px;
 }
 pre {
@@ -172,7 +171,7 @@ blockquote {
 }
 hr {
 	border: none;
-	border-top: 1px solid rgb(var(--gray-light));
+	border-top: 1px solid var(--gray-light);
 }
 @media (max-width: 720px) {
 	body {
