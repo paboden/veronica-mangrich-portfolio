@@ -112,8 +112,12 @@ import HeaderLink from "./HeaderLink.astro";
 </style>
 
 <style>
-
     dialog {
+        width: minmax(100dvw, calc(var(--page-width) - var(--gap)));
+        max-width: calc(var(--page-width) - var(--gap-small));
+        margin-inline: auto;
+        /* min-height: 100dvh; */
+
         background: light-dark(var(--gray-light), var(--gray-dark));
         border: var(--gap) solid var(--bg-color);
         border-radius: 0;
@@ -121,11 +125,14 @@ import HeaderLink from "./HeaderLink.astro";
         padding: 0;
         overflow-y: auto;
     }
+    dialog[popover]::backdrop {
+        background: var(--bg-color);
+    }
     dialog nav {
         display: flex;
         flex-direction: column;
         background: light-dark(var(--white), var(--black));
-        border-block: var(--gap) solid var(--bg-color);
+        border-block-end: var(--gap) solid var(--bg-color);
         padding: 0;
         margin: 0;
     }
@@ -154,3 +161,16 @@ import HeaderLink from "./HeaderLink.astro";
         min-width: 4rem;
     }
 </style>
+
+<!-- <style>
+    [popover] {
+        width: minmax(100dvw, calc(var(--page-width) - var(--gap)));
+        max-width: calc(var(--page-width) - var(--gap-small));
+        margin-inline: auto;
+        min-height: 100dvh;
+        /* border: none; */
+    }
+    [popover]::backdrop {
+        background: var(--bg-color);
+    }
+</style> -->

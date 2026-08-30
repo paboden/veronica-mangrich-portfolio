@@ -1,10 +1,14 @@
 ---
-import { getImage } from "astro:assets";
+import { Image, getImage } from "astro:assets";
 import portBg from "../assets/portfolio_3/placeholder.png";
 
 const optimizedBg = await getImage({ src: portBg, format: 'webp' });
+
+import Img1 from "../assets/portfolio_3/cherries.png";
+import Img2 from "../assets/portfolio_3/gfs_fruit_bowl_foodservice.png";
+import Img3 from "../assets/portfolio_3/ketchup.png";
 ---
-<div class="container" id="portfolio-1">
+<div class="container" id="portfolio3">
     <section>
         <div class="content">
             <h3 class="small">Point of Sales</h3>
@@ -13,34 +17,53 @@ const optimizedBg = await getImage({ src: portBg, format: 'webp' });
             class="more-btn"  
             aria-label="Open portfolio collection"
             popovertargetaction="show"
-            popovertarget="myPopover"
+            popovertarget="portfolio3Popover"
             >View project</button>
         </div>
         <button 
         class="portfolio-image image-1" 
         style={{ backgroundImage: `url(${optimizedBg.src})` }} 
-        aria-label="Open portfolio collection three"
+        aria-label="Open portfolio collection"
         popovertargetaction="show"
-        popovertarget="myPopover"
+        popovertarget="portfolio3Popover"
         ></button>
     </section>
 </div>
 
-<dialog id="myPopover" popover="auto">
-    <div class="popover-top">
-        <button popovertarget="myPopover" popovertargetaction="hide">Close</button>
-    </div>
-    <div class="popover-content">
-        <ul>
-            <li><p>This is my image</p></li>
-            <li><p>This is my image</p></li>
-            <li><p>This is my image</p></li>
-        </ul>
-    </div>
-    <div class="popover-bottom">
-        <button >Next</button>
-        <div>dots</div>
-        <button >Previous</button>
+<dialog id="portfolio3Popover" popover="auto" class="portfolio">
+    <div class="container">
+        <div class="popover-top">
+            <button 
+                popovertarget="portfolio3Popover" 
+                popovertargetaction="hide"
+                aria-label="Close popup"
+                >
+                <span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><title>close-md</title><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m18 18l-6-6m0 0L6 6m6 6l6-6m-6 6l-6 6"/></svg>
+                </span>
+            </button>
+        </div>
+        <div class="popover-content">
+            <ul>
+               <li>
+                    <Image src={Img1} alt="decorative" width={1000} height={780}/>
+                    <!-- <p>This is my image</p> -->
+                </li>
+                <li>
+                    <Image src={Img2} alt="decorative" width={750} height={570}/>
+                    <!-- <p>This is my image</p> -->
+                </li>
+                <li>
+                    <Image src={Img3} alt="decorative" width={650} height={900}/>
+                    <!-- <p>This is my image</p> -->
+                </li>
+            </ul>
+        </div>
+        <!-- <div class="popover-bottom">
+            <button >Next</button>
+            <div>dots</div>
+            <button >Previous</button>
+        </div> -->
     </div>
 </dialog>
 
@@ -116,7 +139,7 @@ const optimizedBg = await getImage({ src: portBg, format: 'webp' });
 	}
 </style>
 
-<style is:global>
+<!-- <style is:global>
     [popover] {
         width: minmax(100dvw, calc(var(--page-width) - var(--gap)));
         max-width: calc(var(--page-width) - var(--gap-small));
@@ -127,4 +150,4 @@ const optimizedBg = await getImage({ src: portBg, format: 'webp' });
     [popover]::backdrop {
         background: rgba(0, 0, 0, 0.4);
     }
-</style>
+</style> -->

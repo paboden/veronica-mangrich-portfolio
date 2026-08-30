@@ -66,6 +66,10 @@ body {
   	background-color: light-dark(#ffffff, #3C3B3F);
   	color: light-dark(#3C3B3F, #ffffff);
 }
+body:has(dialog:popover-open) {
+  overflow: hidden;
+}
+
 header {
 	flex-grow: 0;
 }

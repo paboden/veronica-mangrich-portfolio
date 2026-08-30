@@ -1,10 +1,16 @@
 ---
-import { getImage } from "astro:assets";
+import { Image, getImage } from "astro:assets";
 import portBg from "../assets/portfolio_1/placeholder.png";
+
+import Img1 from "../assets/portfolio_1/can_pic.png";
+import Img2 from "../assets/portfolio_1/regional_map.png";
+import Img3 from "../assets/portfolio_1/tag_lines.png";
+import Img4 from "../assets/portfolio_1/world_map.png";
+import Img5 from "../assets/portfolio_1/tomra_sorting.png";
 
 const optimizedBg = await getImage({ src: portBg, format: 'webp' });
 ---
-<div class="container" id="portfolio-1">
+<div class="container" id="portfolio1">
     <section>
         <div class="content">
             <h3 class="small">General design and Infographics</h3>
@@ -13,7 +19,7 @@ const optimizedBg = await getImage({ src: portBg, format: 'webp' });
             class="more-btn"  
             aria-label="Open portfolio collection one"
             popovertargetaction="show"
-            popovertarget="myPopover"
+            popovertarget="portfolio1Popover"
             >View project</button>
         </div>
         <button 
@@ -21,26 +27,53 @@ const optimizedBg = await getImage({ src: portBg, format: 'webp' });
         style={{ backgroundImage: `url(${optimizedBg.src})` }} 
         aria-label="Open portfolio collection one"
         popovertargetaction="show"
-        popovertarget="myPopover"
+        popovertarget="portfolio1Popover"
         ></button>
     </section>
 </div>
 
-<dialog id="myPopover" popover="auto">
-    <div class="popover-top">
-        <button popovertarget="myPopover" popovertargetaction="hide">Close</button>
-    </div>
-    <div class="popover-content">
-        <ul>
-            <li><p>This is my image</p></li>
-            <li><p>This is my image</p></li>
-            <li><p>This is my image</p></li>
-        </ul>
-    </div>
-    <div class="popover-bottom">
-        <button >Next</button>
-        <div>dots</div>
-        <button >Previous</button>
+<dialog id="portfolio1Popover" popover="auto" class="portfolio">
+    <div class="container">
+        <div class="popover-top">
+            <button 
+                popovertarget="portfolio1Popover" 
+                popovertargetaction="hide"
+                aria-label="Close popup"
+                >
+                <span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><title>close-md</title><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m18 18l-6-6m0 0L6 6m6 6l6-6m-6 6l-6 6"/></svg>
+                </span>
+            </button>
+        </div>
+        <div class="popover-content">
+            <ul>
+                <li>
+                    <Image src={Img1} alt="decorative" width={800} height={440}/>
+                    <!-- <p>This is my image</p> -->
+                </li>
+                <li>
+                    <Image src={Img2} alt="decorative" width={1000} height={770}/>
+                    <!-- <p>This is my image</p> -->
+                </li>
+                <li>
+                    <Image src={Img3} alt="decorative" width={1000} height={770}/>
+                    <!-- <p>This is my image</p> -->
+                </li>
+                <li>
+                    <Image src={Img4} alt="decorative" width={1000} height={550}/>
+                    <!-- <p>This is my image</p> -->
+                </li>
+                <li>
+                    <Image src={Img5} alt="decorative" width={600} height={840}/>
+                    <!-- <p>This is my image</p> -->
+                </li>
+            </ul>
+        </div>
+        <!-- <div class="popover-bottom">
+            <button >Next</button>
+            <div>dots</div>
+            <button >Previous</button>
+        </div> -->
     </div>
 </dialog>
 
@@ -117,14 +150,78 @@ const optimizedBg = await getImage({ src: portBg, format: 'webp' });
 </style>
 
 <style is:global>
-    [popover] {
+    dialog.portfolio {
+        background: var(--bg-color);
+        border: var(--gap) solid var(--bg-color);
+        border-radius: 0;
+        margin: auto;
+        height: calc(100dvh - var(--gap-large));
+        padding: var(--gap-large)0;
+        overflow-y: auto;
         width: minmax(100dvw, calc(var(--page-width) - var(--gap)));
         max-width: calc(var(--page-width) - var(--gap-small));
         margin-inline: auto;
-        min-height: 100dvh;
-        border: none;
     }
-    [popover]::backdrop {
-        background: rgba(0, 0, 0, 0.4);
+
+    dialog.portfolio .popover-top {
+        display: flex;
+        justify-content: flex-end;
+    }
+    dialog.portfolio .popover-top button {
+        background: light-dark(var(--green-dark), var(--green-light));
+        color: light-dark(var(--green-light), var(--green-dark));
+        padding: var(--gap);
+        margin-inline-start: auto;
+        min-width: 4rem;
+    }
+
+    dialog.portfolio .container {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: calc(100% - calc(var(--gap) * 5));
+        background: light-dark(var(--white), var(--black));
+        border-block-end: var(--gap) solid var(--bg-color);
+        gap: var(--gap);
+        padding: 0;
+        margin: auto 0;
+    }
+
+    dialog.portfolio .popover-content {
+        height: 100%;
+        overflow-y: auto;
+    }
+    dialog.portfolio ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: var(--gap);
+    }
+    dialog.portfolio ul li {
+        background: light-dark(var(--gray-light), var(--gray-dark));
+        display: flex;
+        flex-direction: column;
+        padding: var(--gap-large);
+        align-items: center;
+    }
+    dialog.portfolio a {
+        padding: var(--gap);
+        display: block;
+    }
+
+    dialog.portfolio .popover-bottom {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    dialog.portfolio .popover-bottom button {
+        background: light-dark(var(--green-light), var(--green-light));
+        color: light-dark(var(--green-dark), var(--green-dark));
+        padding: var(--gap);
+        min-width: 4rem;
+        border: 0;
     }
 </style>

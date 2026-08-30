@@ -1,19 +1,22 @@
 ---
-import { getImage } from "astro:assets";
+import { Image, getImage } from "astro:assets";
 import portBg from "../assets/portfolio_2/placeholder.png";
 
 const optimizedBg = await getImage({ src: portBg, format: 'webp' });
+
+import Img1 from "../assets/portfolio_2/buy_more_cans_1.png";
+import Img2 from "../assets/portfolio_2/buy_more_cans_2.png";
 ---
-<div class="container" id="portfolio-2">
+<div class="container" id="portfolio2">
     <section>
         <div class="content">
             <h3 class="small">In this e-Can-omy? Buy More Cans!</h3>
-            <p>A new and simple concept was needed, to help remind people that buying canned food is a great way to stretch your food dollars. A 1950's, nostalgic style artwork achieves this. Currently, It is mainly used on swag items, such as large canvas bags and t-shirts.</p>
+            <p>A new and simple concept was needed, to help remind people that buying canned food is a great way to stretch your food dollars. A 1950's, nostalgic style artwork achieves this. This design is used on swag canvas bags</p>
             <button 
             class="more-btn"  
             aria-label="Open portfolio collection"
             popovertargetaction="show"
-            popovertarget="myPopover"
+            popovertarget="portfolio2Popover"
             >View project</button>
         </div>
        <button 
@@ -21,26 +24,41 @@ const optimizedBg = await getImage({ src: portBg, format: 'webp' });
         style={{ backgroundImage: `url(${optimizedBg.src})` }} 
         aria-label="Open portfolio collection one"
         popovertargetaction="show"
-        popovertarget="myPopover"
+        popovertarget="portfolio2Popover"
         ></button>
     </section>
 </div>
 
-<dialog id="myPopover" popover="auto">
-    <div class="popover-top">
-        <button popovertarget="myPopover" popovertargetaction="hide">Close</button>
-    </div>
-    <div class="popover-content">
-        <ul>
-            <li><p>This is my image</p></li>
-            <li><p>This is my image</p></li>
-            <li><p>This is my image</p></li>
-        </ul>
-    </div>
-    <div class="popover-bottom">
-        <button >Next</button>
-        <div>dots</div>
-        <button >Previous</button>
+<dialog id="portfolio2Popover" popover="auto" class="portfolio">
+    <div class="container">
+        <div class="popover-top">
+            <button 
+                popovertarget="portfolio2Popover" 
+                popovertargetaction="hide"
+                aria-label="Close popup"
+                >
+                <span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><title>close-md</title><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m18 18l-6-6m0 0L6 6m6 6l6-6m-6 6l-6 6"/></svg>
+                </span>
+            </button>
+        </div>
+        <div class="popover-content">
+            <ul>
+               <li>
+                    <Image src={Img1} alt="decorative" width={1000} height={1000}/>
+                    <!-- <p>This is my image</p> -->
+                </li>
+                <li>
+                    <Image src={Img2} alt="decorative" width={1000} height={1000}/>
+                    <!-- <p>This is my image</p> -->
+                </li>
+            </ul>
+        </div>
+        <!-- <div class="popover-bottom">
+            <button >Next</button>
+            <div>dots</div>
+            <button >Previous</button>
+        </div> -->
     </div>
 </dialog>
 
