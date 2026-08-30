@@ -1,8 +1,8 @@
 ---
 import { getImage } from "astro:assets";
-import myBackground1 from "../assets/blog-placeholder-1.jpg";
+import portBg from "../assets/portfolio_3/placeholder.png";
 
-const optimizedBackground1 = await getImage({ src: myBackground1, format: 'webp' });
+const optimizedBg = await getImage({ src: portBg, format: 'webp' });
 ---
 <div class="container" id="portfolio-1">
     <section>
@@ -18,7 +18,7 @@ const optimizedBackground1 = await getImage({ src: myBackground1, format: 'webp'
         </div>
         <button 
         class="portfolio-image image-1" 
-        style={{ backgroundImage: `url(${optimizedBackground1.src})` }} 
+        style={{ backgroundImage: `url(${optimizedBg.src})` }} 
         aria-label="Open portfolio collection three"
         popovertargetaction="show"
         popovertarget="myPopover"

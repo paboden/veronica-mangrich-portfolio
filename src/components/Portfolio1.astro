@@ -1,14 +1,14 @@
 ---
 import { getImage } from "astro:assets";
-import myBackground1 from "../assets/blog-placeholder-1.jpg";
+import portBg from "../assets/portfolio_1/placeholder.png";
 
-const optimizedBackground1 = await getImage({ src: myBackground1, format: 'webp' });
+const optimizedBg = await getImage({ src: portBg, format: 'webp' });
 ---
 <div class="container" id="portfolio-1">
     <section>
         <div class="content">
-            <h3 class="small">General infographics</h3>
-            <p>Collection of infographics generated in multiple design software tools…indesign, photoshop, Canva and powerpoint. Manually put together and edited.</p>
+            <h3 class="small">General design and Infographics</h3>
+            <p>Collection of infographics and general design marketing materials. These were generated using multiple design software tools, including Adobe inDesign, Adobe Photoshop, Canva and Microsoft Powerpoint. These are a mix of manually designed and AI assisted generation.</p>
             <button 
             class="more-btn"  
             aria-label="Open portfolio collection one"
@@ -18,7 +18,7 @@ const optimizedBackground1 = await getImage({ src: myBackground1, format: 'webp'
         </div>
         <button 
         class="portfolio-image image-1" 
-        style={{ backgroundImage: `url(${optimizedBackground1.src})` }} 
+        style={{ backgroundImage: `url(${optimizedBg.src})` }} 
         aria-label="Open portfolio collection one"
         popovertargetaction="show"
         popovertarget="myPopover"
