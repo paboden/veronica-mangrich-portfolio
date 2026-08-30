@@ -67,7 +67,7 @@ const optimizedBackground = await getImage({ src: MahoneyImage, format: 'webp' }
         background-image: url(${optimizedBackground.src});
         background-size: cover;
         background-position: center;
-        min-height: 3rem;
+        min-height: 15rem;
     }
     @container contact (width < 80ch) {
         .container > div {
@@ -83,6 +83,9 @@ const optimizedBackground = await getImage({ src: MahoneyImage, format: 'webp' }
         }
         .content {
             padding-block-start: 0;
+        }
+        .image-filler {
+            display: none;
         }
     }
 
