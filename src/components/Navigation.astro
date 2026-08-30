@@ -2,13 +2,12 @@
 import HeaderLink from "./HeaderLink.astro";
 
 ---
-<section class="section__navigation">
+<section id="navigation" class="section__navigation">
     <button 
-        class="mobile-button"
-        id="menu-btn"
-        popovertarget="menuPopup"
-        style="anchor-name: --menu-btn;"
-    >
+        class="mobile-button" 
+        popovertarget="navigationPopup" 
+        aria-label="Open Navigation"
+        >
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 17h18M3 12h18M3 7h18"/></svg>
     </button>
     <nav class="internal-links">
@@ -19,19 +18,43 @@ import HeaderLink from "./HeaderLink.astro";
         <HeaderLink href="#skills">Skills</HeaderLink>
         <HeaderLink href="#education">Education</HeaderLink>
         <HeaderLink href="#contact">Contact</HeaderLink>
-        <!-- <HeaderLink href="/resume">Resume</HeaderLink> -->
     </nav>
-    <dialog id="menuPopup" popover>
-        <button popovertarget="menuPopup" popovertargetaction="hide">Close</button>
-        <a href="#home"><span popovertarget="menuPopup" popovertargetaction="hide">Home</span></a>
-        <a href="#about" popovertargetaction="hide">About</a>
-        <a href="#portfolio" popovertargetaction="close">Portfolio</a>
-        <a href="#experience" popovertargetaction="close">Experience</a>
-        <a href="#skills" popovertargetaction="close">Skills</a>
-        <a href="#education" popovertargetaction="close">Education</a>
-        <a href="#contact" popovertargetaction="close">Contact</a>
+    <dialog id="navigationPopup" popover>
+        <nav>
+            <button 
+                popovertarget="navigationPopup" 
+                popovertargetaction="hide"
+                aria-label="Close navigation"
+                >
+                <span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><title>close-md</title><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m18 18l-6-6m0 0L6 6m6 6l6-6m-6 6l-6 6"/></svg>
+                </span>
+            </button>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
     </dialog>
 </section>
+
+<script>
+  const nav_popup = document.getElementById("navigationPopup");
+  const nav_popup_links = document.querySelectorAll(".section__navigation dialog a");
+
+  if (nav_popup) {
+    nav_popup_links.forEach((nav_popup_links) => {
+        nav_popup_links.addEventListener("click", () => {
+            nav_popup.togglePopover();
+        });
+    });
+  }
+</script>
 
 <style>
 	.section__navigation {
@@ -72,7 +95,6 @@ import HeaderLink from "./HeaderLink.astro";
 			display: block;
             place-items: center;
             display: flex;
-            /* width: stretch; */
             align-items: center;
             justify-content: center;
             margin: auto;
@@ -87,4 +109,48 @@ import HeaderLink from "./HeaderLink.astro";
             margin-inline: auto;
         }
 	}
+</style>
+
+<style>
+
+    dialog {
+        background: light-dark(var(--gray-light), var(--gray-dark));
+        border: var(--gap) solid var(--bg-color);
+        border-radius: 0;
+        min-height: calc(100dvh - var(--gap-large));
+        padding: 0;
+    }
+
+    dialog nav {
+        display: flex;
+        flex-direction: column;
+        background: light-dark(var(--white), var(--black));
+        border-block-end: var(--gap) solid var(--bg-color);
+        padding: 0;
+        margin: 0;
+    }
+
+    dialog nav ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: var(--gap);
+    }
+
+    dialog nav ul li {
+        background: light-dark(var(--green-light), var(--green-dark));
+        padding: var(--gap);
+        display: block;
+    }
+
+    dialog nav button {
+        background: light-dark(var(--green-dark), var(--green-light));
+        color: light-dark(var(--green-light), var(--green-dark));
+        padding: var(--gap);
+        margin-inline-start: auto;
+        min-width: 4rem;
+    }
 </style>
